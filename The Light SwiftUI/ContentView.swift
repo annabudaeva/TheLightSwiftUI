@@ -2,15 +2,20 @@
 //  ContentView.swift
 //  The Light SwiftUI
 //
-//  Created by Dmitry Kost on 05.11.2021.
-//
 
 import SwiftUI
 
 struct ContentView: View {
+    @State var isLightOn = true
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack {
+            isLightOn ? Color.white : Color.black
+        }
+        .edgesIgnoringSafeArea(.all)
+        .onTapGesture {
+            isLightOn.toggle()
+        }
     }
 }
 
